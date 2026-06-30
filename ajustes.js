@@ -143,7 +143,7 @@ function aplicarEscalaHIU() {
     bossBars.style.transformOrigin = "top right";
 
 bossBars.style.transform =
-    `translateY(30px) scale(${ajustes.hiuScale})`;
+    `translateY(10px) scale(${ajustes.hiuScale})`;
 }
 
 
