@@ -13,6 +13,9 @@ function showBossBar(boss) {
     barra.className = "bossHpBar";
     barra.id = "bossBar" + boss.id;
 
+    barra.style.transform =
+    `scale(${ajustes.hudScale})`;
+
     barra.innerHTML = `
         <div class="bossName">${boss.nombre}</div>
         <div class="bossHpBarBg">
