@@ -28,15 +28,16 @@ if (ajustes.vision > 0.2) {
 
 const ajustes = {
 
-    vision: 2,
-    dialogScale: 0.5,
-    joystickScale: 0.5,
-    joystickOpacity: 0.5,
-    hudScale: 0.5,
+    vision: 1,
+    dialogScale: 1,
+    joystickScale: 1,
+    joystickOpacity: 1,
+    hiuScale: 1,
     musicVolume: 0.5,
-    sfxVolume: 0.5,
+    sfxVolume: 1,
 
 };
+
 
 function cargarAjustes() {
 
@@ -123,13 +124,26 @@ function aplicarOpacidadJoystick() {
 
 }
 
-function aplicarEscalaHUD() {
+function aplicarEscalaHIU() {
 
-    document.getElementById("hudValor").textContent =
-        ajustes.hudScale.toFixed(1);
+    document.getElementById("hiuValor").textContent =
+        ajustes.hiuScale.toFixed(1);
 
-    document.getElementById("playerLives").style.transform =
-        `scale(${ajustes.hudScale})`;
+    // Vidas del jugador
+    const vidas = document.getElementById("playerLives");
+
+    vidas.style.transform =
+        `scale(${ajustes.hiuScale})`;
+
+    vidas.style.transformOrigin = "top left";
+
+    // Barras de los jefes
+    const bossBars = document.getElementById("bossBars");
+
+    bossBars.style.transform =
+        `translateX(-50%) scale(${ajustes.hiuScale})`;
+
+    bossBars.style.transformOrigin = "top center";
 
 }
 
@@ -144,7 +158,7 @@ aplicarVision();
 aplicarEscalaDialogo();
 aplicarEscalaJoystick();
 aplicarOpacidadJoystick();
-aplicarEscalaHUD();
+aplicarEscalaHIU();
 aplicarVolumen();
 
 document.getElementById("joystickMas").onclick = () => {
@@ -229,31 +243,31 @@ document.getElementById("dialogoMenos").onclick = () => {
 
 };
 
-document.getElementById("hudMas").onclick = () => {
+document.getElementById("hiuMas").onclick = () => {
 
-    if (ajustes.hudScale < 2.0) {
+    if (ajustes.hiuScale < 2.0) {
 
-        ajustes.hudScale =
-            Number((ajustes.hudScale + 0.1).toFixed(1));
+        ajustes.hiuScale =
+            Number((ajustes.hiuScale + 0.1).toFixed(1));
 
     }
 
     guardarAjustes();
-    aplicarEscalaHUD();
+    aplicarEscalaHIU();
 
 };
 
-document.getElementById("hudMenos").onclick = () => {
+document.getElementById("hiuMenos").onclick = () => {
 
-    if (ajustes.hudScale > 0.5) {
+    if (ajustes.hiuScale > 0.5) {
 
-        ajustes.hudScale =
-            Number((ajustes.hudScale - 0.1).toFixed(1));
+        ajustes.hiuScale =
+            Number((ajustes.hiuScale - 0.1).toFixed(1));
 
     }
 
     guardarAjustes();
-    aplicarEscalaHUD();
+    aplicarEscalaHIU();
 
 };
 
