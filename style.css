@@ -98,23 +98,17 @@ canvas {
 }
 
 #bossBars{
-    position: absolute;
 
-    top: 70px;
+    position: fixed;
+
+    top: 20px;
     right: 20px;
 
-    width: 320px;
+    width: min(320px, 40vw);
 
     display: flex;
     flex-direction: column;
     gap: 10px;
-
-    align-items: flex-end;
-}
-
-.bossHpBar{
-
-    width:100%;
 
 }
 
