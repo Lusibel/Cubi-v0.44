@@ -140,10 +140,10 @@ function aplicarEscalaHIU() {
     // Barras de los jefes
     const bossBars = document.getElementById("bossBars");
 
-    bossBars.style.transform =
-        `translateX(-50%) scale(${ajustes.hiuScale})`;
+bossBars.style.transform =
+    `scale(${ajustes.hiuScale})`;
 
-    bossBars.style.transformOrigin = "top center";
+bossBars.style.transformOrigin = "top right";
 
 }
 
